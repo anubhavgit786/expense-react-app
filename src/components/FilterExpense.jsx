@@ -3,7 +3,7 @@ import AllExpenses from './AllExpenses';
 import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css";
 
-const FilterExpense = ({ expenses }) => {
+const FilterExpense = ({ expenses, onDeleteExpense }) => {
   const [filterName, setFilterName] = useState("");
   const [filterAmount, setFilterAmount] = useState("");
   const [filterDate, setFilterDate] = useState(null);
@@ -59,7 +59,7 @@ const FilterExpense = ({ expenses }) => {
        <div className="mt-6">
         <h2 className="text-xl font-bold text-gray-700 mb-4">My All Expenses</h2>
         {filteredExpenses?.length > 0 ? (
-          <AllExpenses expenses={filteredExpenses} />
+          <AllExpenses expenses={filteredExpenses} onDeleteExpense={onDeleteExpense} />
         ) : (
           <p className="text-gray-500 text-center">No Such Expenses</p>
         )}

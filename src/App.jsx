@@ -12,11 +12,17 @@ const App = () =>
     setAllExpenses((prevExpenses)=> [...prevExpenses, expense]);
   }
 
+  const handleDeleteExpense = (expenseID)=>
+  {
+    const newExpenses = expenses.filter( expense => expense.id !== expenseID);
+    setAllExpenses(newExpenses);
+  }
+
   return (
     <div>
      <Header/> 
      <AddExpense onAddExpense={handleAddExpense} />
-     <FilterExpense expenses={expenses} />
+     <FilterExpense expenses={expenses} onDeleteExpense={handleDeleteExpense} />
     </div>
   );
 }
